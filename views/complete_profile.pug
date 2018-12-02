@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  .card.py-3
+    .card-title
+      h1 Logged In
+    .card-body
+      div
+        h3 Hi, #{name}, il faut que tu complète ton profil
+      div
+        form(action="/complete-profile", method="POST")
+          .form-group
+            label(for="firstname") Prénom
+            input.form-control(type="text",placeholder="John", name="firstname")
+          .form-group
+            label(for="lastname") Nom de famille
+            input.form-control(type="text",placeholder="Doe", name="lastname")
+          .form-group
+            label(for="pipedrive_email") Pipedrive Email
+            input.form-control(type="text",placeholder="john@doe.com", name="pipedrive_email")
+          .form-group
+            label(for="pipedrive_password") Pipedrive Password
+            input.form-control(type="password",placeholder="passwd", name="pipedrive_password")
+          button.btn.btn-primary(type="submit") Enregistrer mes réponses
+      div
+        a(href="/profile")
+          button.btn.btn-danger Profile page
+      

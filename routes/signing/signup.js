@@ -2,7 +2,7 @@ var express = require('express');
 var jwt = require('jsonwebtoken');
 var router = express.Router();
 
-var User = require('../models/users');
+var User = require('../../models/users');
  
 router.post('/', function(req, res, next){
     // Confirme que le mot de passes est uniforme

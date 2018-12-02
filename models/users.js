@@ -19,6 +19,24 @@ var UserSchema = new mongoose.Schema({
     password: {
       type: String,
       required: true
+    },
+    pipedrive_email: {
+      type: String
+    },
+    pipedrive_password: {
+      type: String
+    },
+    firstname: {
+      type: String
+    },
+    lastname: {
+      type: String
+    },
+    pipedrive_id: {
+      type: Number
+    },
+    pipedrive_islinked: {
+      type: Boolean
     }
   });
 

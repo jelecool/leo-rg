@@ -1,9 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var DailyStats = require('../models/daily-stats');
+var User = require('../models/users');
 
 var bearerHeader;
-
 
 function ensureToken(req, res, next) {
   if (req.headers["authorization"]) {
@@ -31,21 +30,23 @@ function ensureToken(req, res, next) {
   }
 }
  
+router.get('/', ensureToken, function(req, res, next) {
+  return res.render('complete_profile');
+});
+
 /* GET home page. */
 router.post('/', ensureToken, function(req, res, next){
 
-  var daily_stats = {};
-  console.log("Req.body.contrats: " + req.body.contrats);
-  daily_stats.cold_call = req.body["cold-call"];
-  daily_stats.rendez_vous = req.body["rendez-vous"];
-  daily_stats.suivis = req.body["suivis"];
-  daily_stats.contrats = req.body["contrats"];
-  daily_stats.demandes_custom = req.body["demandes-custom"];
-  daily_stats.closes_custom = req.body["closes-custom"];
-  daily_stats.closes_leo = req.body["closes-leo"];
-  daily_stats.author = req.session.user._id;
+  var full_profile = {};
 
-  DailyStats.create(daily_stats, function(err, stats) {
+  full_profile.firstname = req.body.firstname;
+  full_profile.lastname = req.body.lastname;
+  full_profile.pipedrive_email = req.body.pipedrive_email;
+  full_profile.pipedrive_password = req.body.pipedrive_password;
+
+
+
+  User.findOneAndUpdate({id: req.session.user._id},full_profile, function(err, stats) {
     if (err) {
       console.log(err);
     } else {

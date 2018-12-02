@@ -36,10 +36,8 @@ var DailyStatsSchema = new mongoose.Schema({
     date: {
       type: String
     } 
-  
     
   });
-
 
 
   var DailyStats = mongoose.model('DailyStats', DailyStatsSchema);

@@ -1,5 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var Pipedrive = require('pipedrive');
+var config = require('../config');
+var pipedrive = new Pipedrive.Client(config.pipedrive_key, { strictMode: true });
 
 var bearerHeader;
 
@@ -33,6 +36,13 @@ function ensureToken(req, res, next) {
 /* GET home page. */
 router.get('/', ensureToken, function(req, res, next){
   console.log(`ID Stored in SESSION : ${req.session.user._id}`);
+  pipedrive.Users.get({id:3241853},function (err, users) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(users[12]);
+    }
+  })
   return res.render('profile', { name: req.session.user.username, user: req.session.user  });
  
 });

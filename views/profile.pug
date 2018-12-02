@@ -5,10 +5,16 @@ block content
     .card-title
       h1 Logged In
     .card-body
-      div
-        h3 Hi, #{name}, I am happy to see you!
-        p Welcome to your profile!
-      div
-        a(href="/daily-stats")
-          button.btn.btn-danger Entrez mes stats du jour
+      .row
+        .col
+          h3 Hi, #{name}, I am happy to see you!
+          p Welcome to your profile!
+      .row 
+        .col
+          a(href="/daily-stats")
+            button.btn.btn-danger Entrez mes stats du jour
+      .row
+        .col
+          a(href="/complete-profile")
+            button.btn.btn-danger Complèter mon profil
       

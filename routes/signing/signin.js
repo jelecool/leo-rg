@@ -2,7 +2,7 @@ var express = require('express');
 var jwt = require('jsonwebtoken');
 var router = express.Router();
 
-var User = require('../models/users');
+var User = require('../../models/users');
 
 //Route qui écoutes la réception d'un login form et agit en conséquence (validation/création + envoie du token)
 router.post('/', function (req, res, next) {
