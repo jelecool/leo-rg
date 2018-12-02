@@ -18,7 +18,7 @@ router.post('/', function (req, res, next) {
           req.session.userId = user._id;
           const token = jwt.sign({ user: user }, toString(Math.random));
           req.session.token = token;
-          console.log(`Signin: L: 21 ${req.session.userId} `);
+          console.log(`Signin: L: 21 ${req.session.userId} et le user ${req.session.user} `);
           res.redirect('/profile');
         }
       });

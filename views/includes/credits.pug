@@ -2,3 +2,7 @@ div.copyrights
   h4 About the team
   a(href='https://leo.solutions')
     h5 Leo Solutions
+  if (user)
+    form(action="/signout", method="POST")
+      button.btn.btn-danger(type="submit") Sign out
+      

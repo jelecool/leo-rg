@@ -32,8 +32,8 @@ function ensureToken(req, res, next) {
  
 /* GET home page. */
 router.get('/', ensureToken, function(req, res, next){
-  console.log(`ID Stored in SESSION : ${req.session.user._id}`);
-  return res.render('profile', { name: req.session.user.username, user: req.session.user  });
+  //console.log(`ID Stored in SESSION : ${req.session.user._id}`);
+  return res.render('daily_stats', {name: req.session.user.username, user: req.session.user });
  
 });
 

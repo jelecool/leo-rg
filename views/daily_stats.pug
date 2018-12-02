@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  .card.py-3
+    .card-title
+      h1 Logged In
+    .card-body
+      div
+        h3 Hi, #{name}, rentres tes stats du jour!
+        p C'est ici que tu rentres et enregistre tes statistiques du jour.
+      div
+        form(action="/save-stats", method="POST")
+          .form-group
+            label(for="cold-call") Cold-call
+            input.form-control(type="number",placeholder="Cold-call", id="cold-call")
+          .form-group
+            label(for="rendez-vous") Rendez-vous pris
+            input.form-control(type="number",placeholder="Rendez-vous pris", id="rendez-vous")
+          .form-group
+            label(for="suivis") Suivis
+            input.form-control(type="number",placeholder="Suivis", id="suivis")
+          .form-group
+            label(for="contrats") Contrat
+            input.form-control(type="number",placeholder="Contrat", id="contrats")
+          .form-group
+            label(for="demandes-custom") Demandes Custom
+            input.form-control(type="number",placeholder="Demande Custom", id="demandes-custom")
+          .form-group
+            label(for="closes-custom") Closes Custom
+            input.form-control(type="number",placeholder="Close Custom", id="closes-custom")
+          .form-group
+            label(for="closes-leo") Closes Leo
+            input.form-control(type="number",placeholder="Close Leo", id="closes-leo")
+          button.btn.btn-primary(type="submit") Enregistrer mes réponses
+      div
+        a(href="/profile")
+          button.btn.btn-danger Profile page
+      

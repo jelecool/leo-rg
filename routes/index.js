@@ -5,7 +5,7 @@ var config = require('../config');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: config.title });
+  res.render('index', { title: config.title, user: req.session.user });
 });
 
 module.exports = router;

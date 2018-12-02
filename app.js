@@ -10,7 +10,10 @@ var config = require('./config');
 var indexRouter = require('./routes/index');
 var signupRouter = require('./routes/signup');
 var signinRouter = require('./routes/signin');
+var signoutRouter = require('./routes/signout');
 var protectedRouter = require('./routes/profile');
+var dailystatsRouter = require('./routes/daily-stats');
+var saveStatsRouter = require('./routes/save-stats');
 
 
 var app = express();
@@ -42,8 +45,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/signup', signupRouter);
+app.use('/signout', signoutRouter);
 app.use('/signin', signinRouter);
 app.use('/profile', protectedRouter);
+app.use('/daily-stats', dailystatsRouter)
+app.use('/save-stats', saveStatsRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

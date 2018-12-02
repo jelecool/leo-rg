@@ -35,10 +35,11 @@ a {
 /* Copyrights*/
 
 .copyrights {
-  position: absolute;
+  position: relative;
   right: 0;
   bottom: 0;
   left: 0;
   padding: 0rem;
   text-align: center;
+  align-content: center;
 }
